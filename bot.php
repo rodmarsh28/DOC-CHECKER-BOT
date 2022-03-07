@@ -24,7 +24,7 @@ $channel_id = "-100xxxxxxxxxx";
     if($message == "/cmds" || $message == "/cmds@github_rbot"){
         send_message($chat_id,$message_id, "
           /search <query> (Google search)
-          \n/bin <bin> (Bin Data)
+          \n!bin or /bin <bin> (Bin Data)
           \n/weather <name of your city> (Current weather Status)
           \n/dice <dice emoji>
           \n/date (today's date)
@@ -138,7 +138,7 @@ else {
 
 
 //Bin Lookup
-if(strpos($message, "/bin") === 0){
+if(strpos($message, "/bin") === 0 or strpos($message, "!bin") === 0){
     $bin = substr($message, 5);
     $curl = curl_init();
     curl_setopt_array($curl, [
